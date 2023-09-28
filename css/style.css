@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&display=swap');
+*{
+    font-family: 'Nunito';
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-size: 20px;
+    background: #f0ebf8;
+    padding-bottom: 50px;
+}
+h1{
+    text-align: center;
+}
+#juego{
+    max-width: 800px;
+    margin: auto;
+}
+#quiz-container{
+    border: 1px solid #d85151;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #d64141;
+    
+}
+p {
+    color: #fff;
+}
+ul{
+    color: #fff;
+}
+
+input{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+button{
+    width: fit-content;
+    display: block;
+    margin: auto;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#result{
+    text-align: center;
+}
+
+#options-container {
+    display: inline-block;
+    width: 50%; 
+}
