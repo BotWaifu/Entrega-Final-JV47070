@@ -13,21 +13,22 @@ body{
 h1{
     text-align: center;
 }
+
 #juego{
     max-width: 800px;
     margin: auto;
 }
 #quiz-container{
-    border: 1px solid #d85151;
+    border: 10px solid #902b2b;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 20px;
-    background: #d64141;
+    background: #b53a40;
     
 }
 p {
     color: #fff;
-}
+}   
 ul{
     color: #fff;
 }

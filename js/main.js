@@ -1,34 +1,13 @@
-const allQuestions = [
-    {
-        question: "¿Cuál es el río más largo del mundo?",
-        options: ["El amazonas", "Nilo", "Misisipi", "Yangtsé"],
-        correctAnswer: "El amazonas",
-        categoria: "Geografia"
-    },
-    {
-        question: "¿Cual es un idioma oficial del Peru?",
-        options: ["Español", "Quiché", "Aymara", "wayuunaiki"],
-        correctAnswer: "Aymara",
-        categoria: "Idiomas"
-    },
-    {
-        question: "¿Contra qué país se enfrentó Perú en la Guerra del Pacífico entre 1879 y 1884?",
-        options: ["Chile", "Colombia", "Argentina", "Bolivia"],
-        correctAnswer: "Chile",
-        categoria: "Historia"
-    },
-    {
-        question: "¿Qué día se celebra la independencia de Perú?",
-        options: ["El 28 de julio", "El 4 de julio", "19 de abril", "28 de Octubre"],
-        correctAnswer: "El 28 de julio",
-        categoria: "Historia"
-    }
 
-];
-
-let quizData = allQuestions;
-let currentQuestionIndex = 0;
-let score = 0;
+fetch('preguntas.json')
+    .then(response => response.json())
+    .then(data => {
+        quizData = data;
+        displayQuestion();
+    })
+    .catch(error => {
+        console.error('Error al cargar el archivo JSON:', error);
+    });
 
 const questionText = document.getElementById("question-text");
 const option1 = document.getElementById("option1");
@@ -59,30 +38,32 @@ function displayQuestion() {
     option4.checked = false;
 }
 
+
 function evaluateAnswer() {
     const currentQuestion = quizData[currentQuestionIndex];
     const selectedOption = document.querySelector('input[name="answer"]:checked');
+    
     if (!selectedOption) {
-        return; 
+        return;
     }
-    if (selectedOption.value === currentQuestion.correctAnswer) {
+
+    const isCorrect = selectedOption.value === currentQuestion.correctAnswer;
+    const feedback = isCorrect ? "Respuesta correcta" : "Respuesta incorrecta";
+
+
+    resultDiv.textContent = feedback;
+
+    if (isCorrect) {
         score++;
     }
 }
 
-nextButton.addEventListener("click", function() {
-    evaluateAnswer();
-    currentQuestionIndex++;
-    if (currentQuestionIndex < quizData.length) {
-        displayQuestion();
-    } else {
- 
-        resultDiv.textContent = `Tu puntuación es: ${score} de ${quizData.length}`;
-        nextButton.style.display = "none"; 
-    }
-});
+function executeAfterClick(button, callback) {
+    button.addEventListener("click", function() {
+        callback();
+    });
+}
 
-displayQuestion();
 
 const restartButton = document.getElementById("button");
 
@@ -95,25 +76,22 @@ function restartQuiz() {
 }
 
 restartButton.addEventListener("click", restartQuiz);
+const allQuestions = [];
 
 const categoriaFilter = document.getElementById("categoria-filter");
 
 function filtrarPreguntasPorCategoria() {
     const categoriaSeleccionada = categoriaFilter.value;
-    
+
     if (categoriaSeleccionada === "Todas") {
-        
-        quizData = allQuestions; 
         currentQuestionIndex = 0;
         displayQuestion();
     } else {
-       
-        const preguntasFiltradas = allQuestions.filter(function(pregunta) {
-            return pregunta.categoria === categoriaSeleccionada;
-        });
+        const preguntasFiltradas = quizData.filter(pregunta => pregunta.categoria === categoriaSeleccionada);
 
         if (preguntasFiltradas.length > 0) {
-            quizData = preguntasFiltradas; 
+       
+            quizData = preguntasFiltradas;
             currentQuestionIndex = 0;
             displayQuestion();
         } else {
@@ -124,3 +102,37 @@ function filtrarPreguntasPorCategoria() {
 }
 
 categoriaFilter.addEventListener("change", filtrarPreguntasPorCategoria);
+
+let quizData = JSON.parse(localStorage.getItem('quizData')) || [];
+let currentQuestionIndex = JSON.parse(localStorage.getItem('currentQuestionIndex')) || 0;
+let score = JSON.parse(localStorage.getItem('score')) || 0;
+
+
+function saveQuizState() {
+    localStorage.setItem('quizData', JSON.stringify(quizData));
+    localStorage.setItem('currentQuestionIndex', JSON.stringify(currentQuestionIndex));
+    localStorage.setItem('score', JSON.stringify(score));
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    resultDiv.textContent = "";
+    nextButton.style.display = "block";
+    displayQuestion();
+    saveQuizState(); 
+}
+
+
+executeAfterClick(nextButton, function() {
+    evaluateAnswer();
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizData.length) {
+        displayQuestion();
+        saveQuizState();
+    } else {
+        resultDiv.textContent = `Tu puntuación es: ${score} de ${quizData.length}`;
+        nextButton.style.display = "none";
+        saveQuizState(); 
+    }
+});

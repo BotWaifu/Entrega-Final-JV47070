@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Peruano</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.all.min.js"></script>
-  </link>
-  <body>
+</head>
+<body>
     <h1>Quiz Peruano</h1>
+    
     <select id="categoria-filter">
-      <option value="Todas">Todas</option>
-      <option value="Geografia">Geografia</option>
-      <option value="Idiomas">Idiomas</option>
-      <option value="Historia">Historia</option>
-  </select>
+        <option value="Todas">Todas</option>
+        <option value="Geografia">Geografía</option>
+        <option value="Idiomas">Idiomas</option>
+        <option value="Historia">Historia</option>
+    </select>
     <div id="quiz-container">
-      <p id="question-text"></p>
-      <div id="options-container">
-          <input type="radio" name="answer" id="option1">
-          <label for="option1" id="label1"></label><br>
-          <input type="radio" name="answer" id="option2">
-          <label for="option2" id="label2"></label><br>
-          <input type="radio" name="answer" id="option3">
-          <label for="option3" id="label3"></label><br>
-          <input type="radio" name="answer" id="option4">
-          <label for="option4" id="label4"></label><br>
-      </div>
-      <button id="next-button">Siguiente</button>
-  </div>
-  <div id="result"></div>
-  <div id="container">
-    <button id="button">Inicio</button>
-</div>
-<div id="result"></div>
-<button id="restart-button" style="display: none;">Reiniciar Quiz</button>
-      <script src="./js/main.js"></script>
+        <p id="question-text"></p>
+        <div id="options-container">
+            <input type="radio" name="answer" id="option1">
+            <label for="option1" id="label1"></label><br>
+            <input type="radio" name="answer" id="option2">
+            <label for="option2" id="label2"></label><br>
+            <input type="radio" name="answer" id="option3">
+            <label for="option3" id="label3"></label><br>
+            <input type="radio" name="answer" id="option4">
+            <label for="option4" id="label4"></label><br>
+        </div>
+        <button id="next-button">Siguiente</button>
+    </div>
+    <div id="result"></div>
+    <div id="container">
+        <button id="button">Inicio</button>
+    </div>
+    <button id="restart-button" style="display: none;">Reiniciar Quiz</button>
+    <script src="./js/main.js"></script>
 </body>
-</html>

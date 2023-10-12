@@ -1,0 +1,27 @@
+[
+    {
+        "question": "¿Cuál es el río más largo del mundo?",
+        "options": ["El amazonas", "Nilo", "Misisipi", "Yangtsé"],
+        "correctAnswer": "El amazonas",
+        "categoria": "Geografia"
+    },
+    {
+        "question": "¿Cual es un idioma oficial del Peru?",
+        "options": ["Español", "Quiché", "Aymara", "wayuunaiki"],
+        "correctAnswer": "Aymara",
+        "categoria": "Idiomas"
+    },
+    {
+        "question": "¿Contra qué país se enfrentó Perú en la Guerra del Pacífico entre 1879 y 1884?",
+        "options": ["Chile", "Colombia", "Argentina", "Bolivia"],
+        "correctAnswer": "Chile",
+        "categoria": "Historia"
+    },
+    {
+        "question": "¿Qué día se celebra la independencia de Perú?",
+        "options": ["El 28 de julio", "El 4 de julio", "19 de abril", "28 de Octubre"],
+        "correctAnswer": "El 28 de julio",
+        "categoria": "Historia"
+    }
+
+]
