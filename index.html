@@ -4,17 +4,20 @@
     <meta charset="utf-8">
     <title>Peruano</title>
     <link rel="stylesheet" href="./css/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+   
     <h1>Quiz Peruano</h1>
-    
-    <select id="categoria-filter">
+    <button id="startButton" onclick="startQuiz()">Comenzar</button>
+    <select id="categoria-filter" style="display: none;">
         <option value="Todas">Todas</option>
         <option value="Geografia">Geografía</option>
         <option value="Idiomas">Idiomas</option>
         <option value="Historia">Historia</option>
     </select>
-    <div id="quiz-container">
+    <div id="quiz-container" style="display: none;">
         <p id="question-text"></p>
         <div id="options-container">
             <input type="radio" name="answer" id="option1">
@@ -30,8 +33,10 @@
     </div>
     <div id="result"></div>
     <div id="container">
-        <button id="button">Inicio</button>
+        <button id="button" style="display: none;">Inicio</button>
     </div>
     <button id="restart-button" style="display: none;">Reiniciar Quiz</button>
+
+
     <script src="./js/main.js"></script>
 </body>

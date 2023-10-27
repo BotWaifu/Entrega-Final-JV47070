@@ -1,4 +1,50 @@
 
+function showWelcomeAlert() {
+    Swal.fire({
+        title: 'Bienvenido al cuestionario',
+        text: 'Haz clic en el botón "Siguiente" para comenzar.',
+        icon: 'info',
+        confirmButtonText: 'Comenzar'
+    });
+}
+
+function showCompletionAlert() {
+    Swal.fire({
+        title: 'Cuestionario completado',
+        text: `Tu puntuación es: ${score} de ${quizData.length}`,
+        icon: 'success',
+        confirmButtonText: 'Cerrar'
+    });
+}
+
+function startQuiz() {
+    showWelcomeAlert(); 
+
+
+        anime({
+            targets: '#startButton',
+            opacity: 0, 
+            duration: 500, 
+            easing: 'easeOutExpo',
+            complete: function(anim) {
+                document.getElementById('startButton').style.display = 'none';
+                document.getElementById('quiz-container').style.display = 'block';
+                document.getElementById('categoria-filter').style.display = 'block';
+                document.getElementById('button').style.display = 'block';
+
+            }
+            
+        });
+        
+        Swal.fire({
+            title: 'Bienvenido al cuestionario',
+            text: 'Haz clic en el botón "Siguiente" para comenzar.',
+            icon: 'info',
+            confirmButtonText: 'Comenzar'
+        })
+    
+    
+
 fetch('preguntas.json')
     .then(response => response.json())
     .then(data => {
@@ -133,6 +179,9 @@ executeAfterClick(nextButton, function() {
     } else {
         resultDiv.textContent = `Tu puntuación es: ${score} de ${quizData.length}`;
         nextButton.style.display = "none";
-        saveQuizState(); 
+        saveQuizState();
+        showCompletionAlert(); // Muestra la alerta de cuestionario completado
     }
 });
+
+}

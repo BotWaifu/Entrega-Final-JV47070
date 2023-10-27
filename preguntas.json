@@ -22,6 +22,43 @@
         "options": ["El 28 de julio", "El 4 de julio", "19 de abril", "28 de Octubre"],
         "correctAnswer": "El 28 de julio",
         "categoria": "Historia"
+    },
+
+    {
+        "question": "¿Cuál es el principal puerto del Perú?",
+        "options": ["Callao", "Lima", "Arequipa", "Iquitos"],
+        "correctAnswer": "Callao",
+        "categoria": "Geografia"
+    },
+    {
+        "question": "¿Con qué países limita el país por el norte?",
+        "options": ["Colombia y Venezuela", "Venezuela y Colombia", "Colombia y Ecuador"],
+        "correctAnswer": "Colombia y Ecuador",
+        "categoria": "Geografia"
+    },
+    {
+        "question": "¿Cuál es la capital del Perú?",
+        "options": ["Callao", "Arequipa", "Lima", "Loreto"],
+        "correctAnswer": "Lima",
+        "categoria": "Geografia"
+    },
+    {
+        "question": "¿Qué película fue nominada al Oscar en 2010?",
+        "options": ["Dias de Santiago", "Panteon y las visitadoras", "Papá Youtuber", "La teta asustada"],
+        "correctAnswer": "la teta asustada",
+        "categoria": "Historia"
+    },
+    {
+        "question": "¿Con cual de estos paises el Perú tuvo más conflictos armados?",
+        "options": ["Ecuador", "Colombia", "Chile", "Bolivia"],
+        "correctAnswer": "Ecuador",
+        "categoria": "Historia"
+    },
+    {
+        "question": "¿Quién fue el primer Inca?",
+        "options": ["Atahualpa", "Manco Capac", "Inca Roca", "Sinchi Roca"],
+        "correctAnswer": "Manco Capac",
+        "categoria": "Historia"
     }
 
 ]
