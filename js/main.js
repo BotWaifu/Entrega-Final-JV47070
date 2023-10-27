@@ -142,7 +142,6 @@ function filtrarPreguntasPorCategoria() {
             displayQuestion();
         } else {
             
-            console.log("No hay preguntas en esta categoría.");
         }
     }
 }
